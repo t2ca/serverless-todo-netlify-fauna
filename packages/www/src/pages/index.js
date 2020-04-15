@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Heading, Button, Flex } from 'theme-ui';
+import netlifyIdentity from 'netlify-identity-widget';
 
 export default (props) => {
+  useEffect(() => {
+    netlifyIdentity.init({});
+  });
   return (
     <Container>
       <Flex sx={{ flexDirection: 'column', p: 3 }}>
@@ -9,7 +13,7 @@ export default (props) => {
         <Button
           sx={{ mt: 3 }}
           onClick={() => {
-            alert('clicked');
+            netlifyIdentity.open();
           }}
         >
           Login
