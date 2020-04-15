@@ -1,0 +1,12 @@
+{
+  "name": "serverless-todo-netlify-fauna",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:t2ca/serverless-todo-netlify-fauna.git",
+  "author": "Mike <mike@t2.ca>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
