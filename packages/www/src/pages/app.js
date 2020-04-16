@@ -1,6 +1,6 @@
-// import React, { useContext } from 'react';
-// import { Heading, Button, Flex } from 'theme-ui';
-// import { Router } from '@reach/router';
+import React, { useContext } from 'react';
+import { Heading, Button, Flex } from 'theme-ui';
+import { Router } from '@reach/router';
 // import { IdentityContext } from '../../identity-context';
 
 // let Dash = () => {
@@ -26,10 +26,10 @@
 //   );
 // };
 
-// export default (props) => {
-//   return (
-//     <Router>
-//       <Dash path="/app" />
-//     </Router>
-//   );
-// };
+export default (props) => {
+  return (
+    <Router>
+      <Dash path="/app" />
+    </Router>
+  );
+};
