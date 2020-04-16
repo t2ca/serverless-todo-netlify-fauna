@@ -13,9 +13,9 @@ export default (props) => {
         <NavLink as={Link} to="/" p={2}>
           Home
         </NavLink>
-        {/*        <NavLink as={Link} to="/app" p={2}>
+        <NavLink as={Link} to="/app" p={2}>
           Dashboard
-        </NavLink>*/}
+        </NavLink>
         {user && (
           <NavLink href="#!" p={2}>
             {user.user_metadata.full_name}
