@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Heading, Button, Flex } from 'theme-ui';
 import { Router } from '@reach/router';
-// import { IdentityContext } from '../../identity-context';
+import { IdentityContext } from '../../identity-context';
 
 let Dash = () => {
   const { user } = useContext(IdentityContext);
