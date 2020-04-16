@@ -43,9 +43,17 @@ let DashLoggedOut = (props) => {
 };
 
 export default (props) => {
+  const { user } = useContext(IdentityContext);
+  if (!user) {
+    return (
+      <Router>
+        <DashLoggedOut path="/app" />
+      </Router>
+    );
+  }
   return (
     <Router>
-      <DashLoggedOut path="/app" />
+      <Dash path="/app" />
     </Router>
   );
 };
