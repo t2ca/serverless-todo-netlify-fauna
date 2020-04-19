@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
-import { Container, Heading, Button, Flex, NavLink } from 'theme-ui';
-import { Link } from 'gatsby';
-import { IdentityContext } from '../../identity-context';
+import React, { useContext } from 'react'
+import { Container, Heading, Button, Flex, NavLink } from 'theme-ui'
+import { Link } from 'gatsby'
+import { IdentityContext } from '../../identity-context'
 
-export default (props) => {
-  const { user, identity: netlifyIdentity } = useContext(IdentityContext);
+const Index = () => {
+  const { user, identity: netlifyIdentity } = useContext(IdentityContext)
 
-  console.log(user);
   return (
     <Container>
       <Flex as="nav">
@@ -28,12 +27,14 @@ export default (props) => {
         <Button
           sx={{ mt: 3 }}
           onClick={() => {
-            netlifyIdentity.open();
+            netlifyIdentity.open()
           }}
         >
           Login
         </Button>
       </Flex>
     </Container>
-  );
-};
+  )
+}
+
+export default Index

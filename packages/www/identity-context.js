@@ -5,6 +5,7 @@ export const IdentityContext = React.createContext({})
 
 export const Provider = (props) => {
   const [user, setUser] = useState()
+  const { Provider } = IdentityContext
 
   useEffect(() => {
     netlifyIdentity.init({})
@@ -19,8 +20,8 @@ export const Provider = (props) => {
   })
 
   return (
-    <IdentityContext.Provider value={{ identity: netlifyIdentity, user }}>
+    <Provider value={{ identity: netlifyIdentity, user }}>
       {props.children}
-    </IdentityContext.Provider>
+    </Provider>
   )
 }

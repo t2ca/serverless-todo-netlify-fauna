@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { Container, Heading, Button, Flex, NavLink } from 'theme-ui';
-import { Router } from '@reach/router';
-import { IdentityContext } from '../../identity-context';
-import { Link } from 'gatsby';
-import Dash from '../components/dashboard';
+import React, { useContext } from 'react'
+import { Container, Heading, Button, Flex, NavLink } from 'theme-ui'
+import { Router } from '@reach/router'
+import { IdentityContext } from '../../identity-context'
+import { Link } from 'gatsby'
+import Dashboard from '../components/dashboard'
 
-let DashLoggedOut = (props) => {
-  const { user, identity: netlifyIdentity } = useContext(IdentityContext);
+let DashLoggedOut = () => {
+  const { user, identity: netlifyIdentity } = useContext(IdentityContext)
   return (
     <Container>
       <Flex as="nav">
@@ -27,28 +27,30 @@ let DashLoggedOut = (props) => {
         <Button
           sx={{ mt: 3 }}
           onClick={() => {
-            netlifyIdentity.open();
+            netlifyIdentity.open()
           }}
         >
           Login
         </Button>
       </Flex>
     </Container>
-  );
-};
+  )
+}
 
-export default (props) => {
-  const { user } = useContext(IdentityContext);
+const App = () => {
+  const { user } = useContext(IdentityContext)
   if (!user) {
     return (
       <Router>
         <DashLoggedOut path="/app" />
       </Router>
-    );
+    )
   }
   return (
     <Router>
-      <Dash path="/app" />
+      <Dashboard path="/app" />
     </Router>
-  );
-};
+  )
+}
+
+export default App

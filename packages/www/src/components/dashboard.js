@@ -2,7 +2,6 @@ import React, { useReducer, useContext, useRef } from 'react'
 import {
   Container,
   Flex,
-  Heading,
   Input,
   Label,
   NavLink,
@@ -16,13 +15,14 @@ const todosReducer = (state, action) => {
   switch (action.type) {
     case 'addTodo':
       return [{ done: false, value: action.payload }, ...state]
-    case 'toggleTodoDone':
+    case 'toggleTodoDone': {
       const newState = [...state]
       newState[action.payload] = {
         done: !state[action.payload].done,
         value: state[action.payload].value,
       }
       return newState
+    }
   }
 }
 
