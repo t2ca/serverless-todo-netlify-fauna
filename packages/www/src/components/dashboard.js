@@ -68,9 +68,9 @@ const Dashboard = () => {
             inputRef.current.value = ''
           }}
         >
-          <Label sx={{ display: 'flex' }}>
+          <Label htmlFor="todo" sx={{ display: 'flex' }}>
             <span>Add Todo</span>
-            <Input ref={inputRef} sx={{ ml: 1 }} />
+            <Input name="todo" ref={inputRef} sx={{ ml: 1 }} />
           </Label>
           <Button
             sx={{
@@ -82,9 +82,21 @@ const Dashboard = () => {
         </Flex>
         <Flex sx={{ flexDirection: 'column' }}>
           <ul sx={{ listStyleType: 'none' }}>
-            {todos.map((todo) => (
-              <Flex as="li" key={todo.value}>
-                <Checkbox checked={todo.done} />
+            {todos.map((todo, i) => (
+              <Flex
+                as="li"
+                key={i}
+                onClick={() => {
+                  dispatch({
+                    type: 'toggleTodoDone',
+                    payload: i,
+                  })
+                }}
+              >
+                <Checkbox
+                  onChange={(props) => console.log(props)}
+                  checked={todo.done}
+                />
                 <span>{todo.value}</span>
               </Flex>
             ))}

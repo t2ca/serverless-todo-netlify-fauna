@@ -6,6 +6,10 @@ import { IdentityContext } from '../../identity-context'
 const Index = () => {
   const { user, identity: netlifyIdentity } = useContext(IdentityContext)
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
   return (
     <Container>
       <Flex as="nav">
@@ -17,7 +21,7 @@ const Index = () => {
         </NavLink>
         {user && (
           <NavLink href="#!" p={2}>
-            {user.user_metadata.full_name}
+            {capitalizeFirstLetter(user.user_metadata.full_name)}
           </NavLink>
         )}
       </Flex>
