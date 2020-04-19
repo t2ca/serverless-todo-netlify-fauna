@@ -1,14 +1,12 @@
-const React = require('react')
-const netlifyIdentity = require('netlify-identity-widget')
+import React, { useState, useEffect } from 'react'
+import netlifyIdentity from 'netlify-identity-widget'
 
-const IdentityContext = React.createContext({})
+export const IdentityContext = React.createContext({})
 
-exports.IdentityContext = IdentityContext
+export const Provider = (props) => {
+  const [user, setUser] = useState()
 
-const IdentityProvider = (props) => {
-  const [user, setUser] = React.useState()
-
-  React.useEffect(() => {
+  useEffect(() => {
     netlifyIdentity.init({})
   })
   netlifyIdentity.on('login', (user) => {
@@ -26,5 +24,3 @@ const IdentityProvider = (props) => {
     </IdentityContext.Provider>
   )
 }
-
-exports.Provider = IdentityProvider

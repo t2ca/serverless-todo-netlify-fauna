@@ -72,7 +72,13 @@ const Dashboard = () => {
             <span>Add Todo</span>
             <Input ref={inputRef} sx={{ ml: 1 }} />
           </Label>
-          <Button sx={{ ml: 1 }}>submit</Button>
+          <Button
+            sx={{
+              ml: 1,
+            }}
+          >
+            Submit
+          </Button>
         </Flex>
         <Flex sx={{ flexDirection: 'column' }}>
           <ul sx={{ listStyleType: 'none' }}>
