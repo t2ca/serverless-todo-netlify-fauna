@@ -31,7 +31,7 @@ let DashLoggedOut = () => {
             netlifyIdentity.open()
           }}
         >
-          Login
+          Log in
         </Button>
       </Flex>
     </Container>

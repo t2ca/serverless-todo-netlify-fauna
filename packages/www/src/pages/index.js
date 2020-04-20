@@ -34,7 +34,7 @@ const Index = () => {
             netlifyIdentity.open()
           }}
         >
-          Login
+          {user ? 'Log out' : 'Log in'}
         </Button>
       </Flex>
     </Container>
