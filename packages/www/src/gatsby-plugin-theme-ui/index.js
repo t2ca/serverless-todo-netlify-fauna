@@ -1,12 +1,12 @@
 import merge from 'deepmerge'
-import tailwind from '@theme-ui/preset-tailwind'
+import theme from '@theme-ui/preset-tailwind'
 import colors from './colors.js'
 import styles from './styles.js'
 
 const overwriteMerge = (destinationArray, sourceArray, options) => sourceArray
 
 export default merge(
-  tailwind,
+  theme,
   {
     colors,
     styles,

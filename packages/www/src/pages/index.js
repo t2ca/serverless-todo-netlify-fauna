@@ -16,7 +16,7 @@ const Index = () => {
         <NavLink as={Link} to="/" p={2}>
           Home
         </NavLink>
-        <NavLink as={Link} to="/app" p={2}>
+        <NavLink as={Link} to="/app/" p={2}>
           Dashboard
         </NavLink>
         {user && (

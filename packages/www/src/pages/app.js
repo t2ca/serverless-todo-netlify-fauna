@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
+import { Link } from 'gatsby'
 import { Container, Heading, Button, Flex, NavLink } from 'theme-ui'
 import { Router } from '@reach/router'
+
 import { IdentityContext } from '../../identity-context'
-import { Link } from 'gatsby'
 import Dashboard from '../components/dashboard'
 
 let DashLoggedOut = () => {
@@ -13,7 +14,7 @@ let DashLoggedOut = () => {
         <NavLink as={Link} to="/" p={2}>
           Home
         </NavLink>
-        <NavLink as={Link} to="/app" p={2}>
+        <NavLink as={Link} to="/app/" p={2}>
           Dashboard
         </NavLink>
         {user && (
@@ -42,13 +43,13 @@ const App = () => {
   if (!user) {
     return (
       <Router>
-        <DashLoggedOut path="/app" />
+        <DashLoggedOut path="/app/" />
       </Router>
     )
   }
   return (
     <Router>
-      <Dashboard path="/app" />
+      <Dashboard path="/app/" />
     </Router>
   )
 }

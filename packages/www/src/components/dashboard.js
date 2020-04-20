@@ -1,4 +1,5 @@
 import React, { useReducer, useContext, useRef } from 'react'
+import { Link } from 'gatsby'
 import {
   Container,
   Flex,
@@ -8,8 +9,8 @@ import {
   Button,
   Checkbox,
 } from 'theme-ui'
+
 import { IdentityContext } from '../../identity-context'
-import { Link } from 'gatsby'
 
 const todosReducer = (state, action) => {
   switch (action.type) {

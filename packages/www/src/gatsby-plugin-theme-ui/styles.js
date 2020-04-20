@@ -1,10 +1,4 @@
 export default {
-  Container: {
-    py: 3,
-    width: ['100%', '90%'],
-    maxWidth: '1168px',
-  },
-  Header: {},
   p: {
     fontSize: [1],
   },
