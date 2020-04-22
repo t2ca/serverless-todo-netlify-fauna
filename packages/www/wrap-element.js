@@ -3,4 +3,4 @@ import React from 'react'
 // import theme from './src/theme'
 import { Provider } from './identity-context'
 
-export const wrapRootElement = ({ element }) => <Provider>{element}</Provider>
+export default ({ element }) => <Provider>{element}</Provider>
