@@ -7,7 +7,7 @@ import {
 } from '@apollo/client'
 import { setContext } from 'apollo-link-context'
 import netlifyIdentity from 'netlify-identity-widget'
-import wrapElement from './wrap-element'
+import { wrapRootElement as wrapElement } from './src'
 
 const authLink = setContext((_, { headers }) => {
   const user = netlifyIdentity.currentUser()
