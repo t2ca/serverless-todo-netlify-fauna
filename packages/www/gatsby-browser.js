@@ -7,7 +7,7 @@ import {
 } from '@apollo/client'
 import { setContext } from 'apollo-link-context'
 import netlifyIdentity from 'netlify-identity-widget'
-import { wrapRootElement as wrapElement } from './src'
+import wrapWithProvider from './wrap-with-provider'
 
 const authLink = setContext((_, { headers }) => {
   const user = netlifyIdentity.currentUser()
@@ -32,6 +32,8 @@ const client = new ApolloClient({
 
 export const wrapRootElement = ({ element }) => {
   return (
-    <ApolloProvider client={client}>{wrapElement({ element })}</ApolloProvider>
+    <ApolloProvider client={client}>
+      {wrapWithProvider({ element })}
+    </ApolloProvider>
   )
 }
