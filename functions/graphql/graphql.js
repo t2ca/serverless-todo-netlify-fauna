@@ -2,7 +2,7 @@ const { ApolloServer, gql } = require('apollo-server-lambda');
 const faunadb = require('faunadb');
 const q = faunadb.query;
 
-var client = new faunadb.Client({ secret: process.env.FAUNA });
+let client = new faunadb.Client({ secret: process.env.FAUNA });
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
@@ -27,7 +27,7 @@ const resolvers = {
       if (!user) {
         return [];
       } else {
-        const results = await client.query(q.Paginate(q.Match(q.Index('todos_by_user'), user)));
+        const results = await client.query(q.Paginate(q.Match(q.Index('todos_by_user'))));
         return results.data.map(([ref, text, done]) => ({
           id: ref.id,
           text,
@@ -41,6 +41,7 @@ const resolvers = {
       if (!user) {
         throw new Error('Must be authenticated to insert todos');
       }
+
       const results = await client.query(
         q.Create(q.Collection('todos'), {
           data: {
@@ -61,7 +62,7 @@ const resolvers = {
       }
       const results = await client.query(
         q.Update(q.Ref(q.Collection('todos'), id), {
-          data: {
+          date: {
             done: true
           }
         })
@@ -84,6 +85,7 @@ const server = new ApolloServer({
       return {};
     }
   },
+
   // By default, the GraphQL Playground interface and GraphQL introspection
   // is disabled in "production" (i.e. when `process.env.NODE_ENV` is `production`).
   //
