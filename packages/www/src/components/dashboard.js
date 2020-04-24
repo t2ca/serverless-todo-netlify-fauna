@@ -30,7 +30,7 @@ const UPDATE_TODO_DONE = gql`
 
 const GET_TODOS = gql`
   query GetTodos {
-    todos {
+    getTodos {
       id
       text
       done
