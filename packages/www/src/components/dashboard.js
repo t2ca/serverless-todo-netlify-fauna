@@ -118,7 +118,7 @@ const Dashboard = () => {
           {error ? <div>{error.message}</div> : null}
           {!loading && !error && (
             <ul sx={{ listStyleType: 'none' }}>
-              {data.todos.map((todo) => (
+              {data.getTodos.map((todo) => (
                 <Flex
                   key={todo.id}
                   as="li"
