@@ -1,14 +1,9 @@
 type Query {
-  todos: [Todo]!
+  getTodo: [Todo]!
 }
 
 type Todo {
   id: ID!
   text: String!
   done: Boolean!
-}
-
-type Mutation {
-  addTodo(text: String!): Todo
-  updateTodoDone(id: ID!): Todo
 }
