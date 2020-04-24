@@ -30,7 +30,7 @@ const UPDATE_TODO_DONE = gql`
 
 const GET_TODOS = gql`
   query GetTodos {
-    getTodos {
+    todos {
       id
       text
       done
@@ -118,7 +118,7 @@ const Dashboard = () => {
           {error ? <div>{error.message}</div> : null}
           {!loading && !error && (
             <ul sx={{ listStyleType: 'none' }}>
-              {data.getTodos.map((todo) => (
+              {data.todos.map((todo) => (
                 <Flex
                   key={todo.id}
                   as="li"

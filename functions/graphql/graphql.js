@@ -6,13 +6,13 @@ var client = new faunadb.Client({ secret: process.env.FAUNA });
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
+  type Query {
+    todos: [Todo]!
+  }
   type Todo {
     id: ID!
     text: String!
     done: Boolean!
-  }
-  type Query {
-    getTodos: [Todo]!
   }
   type Mutation {
     addTodo(text: String!): Todo
@@ -23,11 +23,11 @@ const typeDefs = gql`
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    getTodos: async (parent, args, { user }) => {
+    todos: async (parent, args, { user }) => {
       if (!user) {
         return [];
       } else {
-        const results = await client.query(q.Paginate(q.Match(q.Index('getTodos_by_user'), user)));
+        const results = await client.query(q.Paginate(q.Match(q.Index('todos_by_user'), user)));
         return results.data.map(([ref, text, done]) => ({
           id: ref.id,
           text,
@@ -42,7 +42,7 @@ const resolvers = {
         throw new Error('Must be authenticated to insert todos');
       }
       const results = await client.query(
-        q.Create(q.Collection('getTodos'), {
+        q.Create(q.Collection('todos'), {
           data: {
             text,
             done: false,
@@ -60,7 +60,7 @@ const resolvers = {
         throw new Error('Must be authenticated to insert todos');
       }
       const results = await client.query(
-        q.Update(q.Ref(q.Collection('getTodos'), id), {
+        q.Update(q.Ref(q.Collection('todos'), id), {
           data: {
             done: true
           }
