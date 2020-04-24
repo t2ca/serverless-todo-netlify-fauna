@@ -15,8 +15,8 @@ const typeDefs = gql`
     done: Boolean!
   }
   type Mutation {
-    addTodo(text: String!): Todo
-    updateTodoDone(id: ID!): Todo
+    addTodo(text: String!): Todo!
+    updateTodoDone(id: ID!): Todo!
   }
 `;
 
@@ -34,6 +34,14 @@ const resolvers = {
           done
         }));
       }
+    },
+    getTodo: async (parent, args, { user }) => {
+      const results = await client.query(q.Paginate(q.Match(q.Index('getTodos'), user)));
+      return results.data.map(([ref, text, done]) => ({
+        id: ref.id,
+        text,
+        done
+      }));
     }
   },
   Mutation: {
