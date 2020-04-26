@@ -30,7 +30,7 @@ const UPDATE_TODO_DONE = gql`
 
 const GET_TODOS = gql`
   query GetTodos {
-    todos {
+    getTodo {
       id
       text
       done
@@ -62,7 +62,7 @@ const Dashboard = () => {
   const { loading, error, data, refetch } = useQuery(GET_TODOS)
 
   console.log(data)
-  console.log(user)
+  console.log(user.id)
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1)
@@ -119,7 +119,7 @@ const Dashboard = () => {
           {error ? <div>{error.message}</div> : null}
           {!loading && !error && (
             <ul sx={{ listStyleType: 'none' }}>
-              {data.todos.map((todo) => (
+              {data.getTodo.map((todo) => (
                 <Flex
                   key={todo.id}
                   as="li"
