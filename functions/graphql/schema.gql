@@ -1,9 +1,8 @@
-type Query {
-  getTodo: [Todo]!
+type Registration {
+  name: String!
+  email: String!
 }
 
-type Todo {
-  id: ID!
-  text: String!
-  done: Boolean!
+type Query {
+  allRegistrations: [Registration!]!
 }
