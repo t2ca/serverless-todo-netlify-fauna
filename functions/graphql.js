@@ -21,6 +21,8 @@ const typeDefs = gql`
   }
 `;
 
+console.log('test');
+
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
