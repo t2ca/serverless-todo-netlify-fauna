@@ -51,8 +51,7 @@ const Contact = () => {
           lastname: '',
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          fetch('/', {
-            path: '/.netlify/functions/submission-create',
+          fetch('/.netlify/functions/submission-create', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
