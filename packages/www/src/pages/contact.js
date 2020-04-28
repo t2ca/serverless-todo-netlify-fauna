@@ -44,6 +44,37 @@ const Contact = () => {
 
   return (
     <Container>
+      <form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
+        <div className="field half first">
+          <label htmlFor="firstname">First Name</label>
+          <input type="text" name="firstname" id="firstname" />
+        </div>
+        <div className="field half first">
+          <label htmlFor="lastname">Last Name</label>
+          <input type="text" name="lastname" id="lastname" />
+        </div>
+        <div className="field half">
+          <label htmlFor="email">Email</label>
+          <input type="text" name="email" id="email" />
+        </div>
+
+        <ul className="actions">
+          <li>
+            <input type="submit" value="Send Message" className="special" />
+          </li>
+          <li>
+            <input type="reset" value="Clear" />
+          </li>
+        </ul>
+      </form>
+      {/*
       <Formik
         initialValues={{
           email: '',
@@ -158,7 +189,7 @@ const Contact = () => {
             </div>
           </Form>
         )}
-      </Formik>
+      </Formik>*/}
     </Container>
   )
 }
