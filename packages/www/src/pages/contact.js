@@ -16,7 +16,6 @@ const InputField = ({ label, ...props }) => {
           htmlFor={props.id || props.name}
           sx={{
             fontWeight: 'bold',
-            textTransform: `uppercase`,
             fontSize: `.75rem`,
             mb: 3,
           }}
@@ -91,9 +90,6 @@ const Contact = () => {
                 bg: `input`,
                 boxShadow: `default`,
                 mt: 4,
-                // border: `1px solid transparent`,
-                // borderColor: `inputBorder`,
-                // maxWidth: `2xl`,
               }}
             >
               <div
@@ -126,7 +122,7 @@ const Contact = () => {
                   }}
                   name="firstname"
                   type="text"
-                  label="firstName"
+                  label="firstname"
                 />
 
                 <InputField
@@ -135,7 +131,7 @@ const Contact = () => {
                   }}
                   name="lastname"
                   type="text"
-                  label="lastName"
+                  label="lastname"
                 />
 
                 <InputField
