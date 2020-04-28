@@ -54,7 +54,7 @@ const Contact = () => {
           fetch('/.netlify/functions/submission-create', {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
+              'content-type': 'application/json',
             },
             body: encode({ 'form-name': 'contact', ...values }),
           })
