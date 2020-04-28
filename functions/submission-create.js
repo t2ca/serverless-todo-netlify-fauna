@@ -1,9 +1,8 @@
 const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
-  console.log(event);
   const body = JSON.parse(event.body);
-  const { firstname, lastname, email } = body;
+  const { firstname, lastname, email } = body.payload.data;
 
   const response = await fetch('https://graphql.fauna.com/graphql', {
     method: 'POST',
