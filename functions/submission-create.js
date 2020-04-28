@@ -1,13 +1,14 @@
 const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
+  console.log(event);
   const body = JSON.parse(event.body);
   const { firstname, lastname, email } = body.payload.data;
 
   const response = await fetch('https://graphql.fauna.com/graphql', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.FAUNA}`
+      Authorization: `Bearer ${process.env.FAUNA_API}`
     },
     body: JSON.stringify({
       query: `
