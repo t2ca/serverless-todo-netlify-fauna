@@ -56,7 +56,7 @@ const Contact = () => {
             headers: {
               'content-type': 'application/json',
             },
-            body: encode({ 'form-name': 'contact', ...values }),
+            body: values,
           })
             .then(() => {
               setSubmitting(false)
