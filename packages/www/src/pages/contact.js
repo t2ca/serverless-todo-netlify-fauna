@@ -126,7 +126,7 @@ const Contact = () => {
                   }}
                   name="firstname"
                   type="text"
-                  label="FirstName"
+                  label="firstName"
                 />
 
                 <InputField
@@ -135,14 +135,14 @@ const Contact = () => {
                   }}
                   name="lastname"
                   type="text"
-                  label="LastName"
+                  label="lastName"
                 />
 
                 <InputField
                   sx={{ variant: `inputs.primary` }}
                   name="email"
                   type="email"
-                  label="Email"
+                  label="email"
                 />
               </Flex>
 
