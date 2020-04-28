@@ -7,7 +7,7 @@ exports.handler = async (event) => {
   const response = await fetch('https://graphql.fauna.com/graphql', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.FAUNA_API_SECRET}`
+      Authorization: `Bearer ${process.env.FAUNA}`
     },
     body: JSON.stringify({
       query: `
@@ -30,6 +30,6 @@ exports.handler = async (event) => {
 
   return {
     statusCode: 200,
-    body: 'test'
+    body: 'boop'
   };
 };
