@@ -44,35 +44,24 @@ const Contact = () => {
 
   return (
     <Container>
-      <form
-        name="contact"
-        method="post"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="contact" />
-        <div className="field half first">
-          <label htmlFor="firstname">First Name</label>
-          <input type="text" name="firstname" id="firstname" />
-        </div>
-        <div className="field half first">
-          <label htmlFor="lastname">Last Name</label>
-          <input type="text" name="lastname" id="lastname" />
-        </div>
-        <div className="field half">
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" />
-        </div>
+      <h1>Register for our thing!</h1>
 
-        <ul className="actions">
-          <li>
-            <input type="submit" value="Send Message" className="special" />
-          </li>
-          <li>
-            <input type="reset" value="Clear" />
-          </li>
-        </ul>
+      <form
+        action="/success"
+        name="registration"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <label htmlFor="firstname">First Name</label>
+        <input id="firstname" name="firstname" type="text" />
+
+        <label htmlFor="lastname">Last Name</label>
+        <input id="lastname" name="lastname" type="text" />
+
+        <label htmlFor="email">Email Address</label>
+        <input id="email" name="email" type="email" />
+
+        <button type="submit">Register</button>
       </form>
       {/*
       <Formik
