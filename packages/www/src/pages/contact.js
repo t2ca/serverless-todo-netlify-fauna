@@ -47,10 +47,12 @@ const Contact = () => {
       <h1>Register for our thing!</h1>
 
       <form
-        name="registration"
+        name="contact"
+        method="post"
         data-netlify="true"
         netlify-honeypot="bot-field"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <label htmlFor="firstname">First Name</label>
         <input id="firstname" name="firstname" type="text" />
 
@@ -60,7 +62,7 @@ const Contact = () => {
         <label htmlFor="email">Email Address</label>
         <input id="email" name="email" type="email" />
 
-        <button type="submit">Register</button>
+        <input type="submit" value="Send Message" />
       </form>
 
       {/*      <form
