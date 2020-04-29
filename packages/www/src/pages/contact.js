@@ -5,63 +5,76 @@ import { Form, Formik, useField } from 'formik'
 
 import * as Yup from 'yup'
 
-const InputField = ({ label, ...props }) => {
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and alse replace ErrorMessage entirely.
-  const [field, meta] = useField(props)
-  return (
-    <React.Fragment>
-      <div sx={{ mt: 3, px: 2, width: `full` }}>
-        <label
-          htmlFor={props.id || props.name}
-          sx={{
-            fontWeight: 'bold',
-            fontSize: `.75rem`,
-            mb: 3,
-          }}
-        >
-          {label}
-        </label>
-        <input {...field} {...props} />
-        {meta.touched && meta.error ? (
-          <div sx={{ p: 0, mt: 1, color: `red.6`, fontSize: `0.75rem` }}>
-            {meta.error}
-          </div>
-        ) : null}
-      </div>
-    </React.Fragment>
-  )
-}
+// const InputField = ({ label, ...props }) => {
+//   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+//   // which we can spread on <input> and alse replace ErrorMessage entirely.
+//   const [field, meta] = useField(props)
+//   return (
+//     <React.Fragment>
+//       <div sx={{ mt: 3, px: 2, width: `full` }}>
+//         <label
+//           htmlFor={props.id || props.name}
+//           sx={{
+//             fontWeight: 'bold',
+//             fontSize: `.75rem`,
+//             mb: 3,
+//           }}
+//         >
+//           {label}
+//         </label>
+//         <input {...field} {...props} />
+//         {meta.touched && meta.error ? (
+//           <div sx={{ p: 0, mt: 1, color: `red.6`, fontSize: `0.75rem` }}>
+//             {meta.error}
+//           </div>
+//         ) : null}
+//       </div>
+//     </React.Fragment>
+//   )
+// }
 
 const Contact = () => {
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-      )
-      .join('&')
-  }
+  // const encode = (data) => {
+  //   return Object.keys(data)
+  //     .map(
+  //       (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+  //     )
+  //     .join('&')
+  // }
 
   return (
     <Container>
-      <h1>Register for our thing!</h1>
-
       <form
-        action="/success"
-        name="registration"
+        name="contact"
         data-netlify="true"
-        netlify-honeypot="bot-field"
+        data-netlify-honeypot="bot-field"
       >
-        <label htmlFor="firstname">First Name</label>
-        <input id="firstname" name="firstname" type="text" />
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
 
-        <label htmlFor="lastname">Last Name</label>
-        <input id="lastname" name="lastname" type="text" />
+        <div>
+          <label htmlFor="firstname">First Name</label>
+          <input type="text" name="firstname" id="firstname" />
+        </div>
 
-        <label htmlFor="email">Email Address</label>
-        <input id="email" name="email" type="email" />
+        <div>
+          <label htmlFor="lastname">Last Name</label>
+          <input type="text" name="lastname" id="lastname" />
+        </div>
 
-        <button type="submit">Register</button>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input type="text" name="email" id="email" />
+        </div>
+
+        <ul>
+          <li>
+            <input type="submit" value="Send Message" />
+          </li>
+          <li>
+            <input type="reset" value="Clear" />
+          </li>
+        </ul>
       </form>
       {/*
       <Formik
