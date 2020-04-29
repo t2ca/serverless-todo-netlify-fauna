@@ -47,25 +47,18 @@ const Contact = () => {
       <h1>Register for our thing!</h1>
 
       <form
-        action="/success"
         name="registration"
         data-netlify="true"
         netlify-honeypot="bot-field"
       >
-        <label for="firstname">First Name</label>
+        <label htmlFor="firstname">First Name</label>
         <input id="firstname" name="firstname" type="text" />
 
-        <label for="lastname">Last Name</label>
+        <label htmlFor="lastname">Last Name</label>
         <input id="lastname" name="lastname" type="text" />
 
-        <label for="email">Email Address</label>
+        <label htmlFor="email">Email Address</label>
         <input id="email" name="email" type="email" />
-
-        <p class="hidden">
-          <label>
-            Don’t fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
 
         <button type="submit">Register</button>
       </form>
