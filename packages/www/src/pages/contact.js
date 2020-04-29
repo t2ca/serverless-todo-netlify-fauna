@@ -5,33 +5,33 @@ import { Form, Formik, useField } from 'formik'
 
 import * as Yup from 'yup'
 
-// const InputField = ({ label, ...props }) => {
-//   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-//   // which we can spread on <input> and alse replace ErrorMessage entirely.
-//   const [field, meta] = useField(props)
-//   return (
-//     <React.Fragment>
-//       <div sx={{ mt: 3, px: 2, width: `full` }}>
-//         <label
-//           htmlFor={props.id || props.name}
-//           sx={{
-//             fontWeight: 'bold',
-//             fontSize: `.75rem`,
-//             mb: 3,
-//           }}
-//         >
-//           {label}
-//         </label>
-//         <input {...field} {...props} />
-//         {meta.touched && meta.error ? (
-//           <div sx={{ p: 0, mt: 1, color: `red.6`, fontSize: `0.75rem` }}>
-//             {meta.error}
-//           </div>
-//         ) : null}
-//       </div>
-//     </React.Fragment>
-//   )
-// }
+const InputField = ({ label, ...props }) => {
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = useField(props)
+  return (
+    <React.Fragment>
+      <div sx={{ mt: 3, px: 2, width: `full` }}>
+        <label
+          htmlFor={props.id || props.name}
+          sx={{
+            fontWeight: 'bold',
+            fontSize: `.75rem`,
+            mb: 3,
+          }}
+        >
+          {label}
+        </label>
+        <input {...field} {...props} />
+        {meta.touched && meta.error ? (
+          <div sx={{ p: 0, mt: 1, color: `red.6`, fontSize: `0.75rem` }}>
+            {meta.error}
+          </div>
+        ) : null}
+      </div>
+    </React.Fragment>
+  )
+}
 
 const Contact = () => {
   // const encode = (data) => {
@@ -45,7 +45,7 @@ const Contact = () => {
   return (
     <Container>
       <h1>Register for our thing!</h1>
-
+      {/*
       <form
         name="contact"
         method="post"
@@ -63,7 +63,7 @@ const Contact = () => {
         <input id="email" name="email" type="email" />
 
         <input type="submit" value="Send Message" />
-      </form>
+      </form>*/}
 
       {/*      <form
         name="contact"
@@ -97,7 +97,7 @@ const Contact = () => {
           </li>
         </ul>
       </form>*/}
-      {/*
+
       <Formik
         initialValues={{
           email: '',
@@ -110,7 +110,7 @@ const Contact = () => {
             headers: {
               'content-type': 'application/json',
             },
-            body: values,
+            body: JSON.stringify(values),
           })
             .then(() => {
               setSubmitting(false)
@@ -212,7 +212,7 @@ const Contact = () => {
             </div>
           </Form>
         )}
-      </Formik>*/}
+      </Formik>
     </Container>
   )
 }
