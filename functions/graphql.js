@@ -49,7 +49,11 @@ const resolvers = {
     // },
     getList: async (parent, args, { user }) => {
       const results = await client.query(q.Paginate(q.Match(q.Index('getList'), user)));
-      return console.log(results);
+      return results.data.map(([ref, text, done]) => ({
+        id: ref.id,
+        text,
+        done
+      }));
     }
   }
   // Mutation: {
