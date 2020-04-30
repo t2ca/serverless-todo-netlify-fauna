@@ -47,8 +47,8 @@ const resolvers = {
     //     }));
     //   }
     // },
-    Registration: async (parent, args, { user }) => {
-      const results = await client.query(q.Paginate(q.Match(q.Index('allRegistrations'), user)));
+    getList: async (parent, args, { user }) => {
+      const results = await client.query(q.Paginate(q.Match(q.Index('getTodos'), user)));
       return console.log(results);
     }
   }
