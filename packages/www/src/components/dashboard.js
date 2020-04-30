@@ -38,6 +38,16 @@ const GET_TODOS = gql`
   }
 `
 
+const GET_LIST = gql`
+  query GetTodos {
+    getList {
+      id
+      name
+      email
+    }
+  }
+`
+
 // const todosReducer = (state, action) => {
 //   switch (action.type) {
 //     case 'addTodo':
@@ -59,7 +69,7 @@ const Dashboard = () => {
   const inputRef = useRef()
   const [addTodo] = useMutation(ADD_TODO)
   const [updateTodoDone] = useMutation(UPDATE_TODO_DONE)
-  const { loading, error, data, refetch } = useQuery(GET_TODOS)
+  const { loading, error, data, refetch } = useQuery(GET_LIST)
 
   console.log(data)
   console.log(user.id)
@@ -119,7 +129,7 @@ const Dashboard = () => {
           {error ? <div>{error.message}</div> : null}
           {!loading && !error && (
             <ul sx={{ listStyleType: 'none' }}>
-              {data.getTodo.map((todo) => (
+              {data.getList.map((todo) => (
                 <Flex
                   key={todo.id}
                   as="li"
@@ -130,9 +140,10 @@ const Dashboard = () => {
                 >
                   <Checkbox
                     onChange={(props) => console.log(props)}
-                    checked={todo.done}
+                    checked={false}
                   />
-                  <span>{todo.text}</span>
+                  <span>{todo.name}</span>
+                  <span>{todo.email}</span>
                 </Flex>
               ))}
             </ul>
