@@ -2,7 +2,7 @@ const { ApolloServer, gql } = require('apollo-server-lambda');
 const faunadb = require('faunadb');
 const q = faunadb.query;
 
-var client = new faunadb.Client({ secret: process.env.FAUNA_API });
+var client = new faunadb.Client({ secret: process.env.FAUNA });
 
 console.log('test');
 // Construct a schema, using GraphQL schema language
