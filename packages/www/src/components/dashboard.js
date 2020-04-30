@@ -39,7 +39,7 @@ const GET_TODOS = gql`
 `
 
 const GET_LIST = gql`
-  query GetTodos {
+  query GetList {
     getList {
       id
       name
