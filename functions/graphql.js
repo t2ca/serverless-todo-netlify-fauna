@@ -48,7 +48,7 @@ const resolvers = {
     //   }
     // },
     getList: async (parent, args, { user }) => {
-      const results = await client.query(q.Paginate(q.Match(q.Index('getList'), user)));
+      const results = await client.query(q.Paginate(q.Match(q.Index('allRegistrations'), user)));
       return console.log(results);
     }
   }
