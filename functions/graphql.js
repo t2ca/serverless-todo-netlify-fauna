@@ -2,7 +2,7 @@ const { ApolloServer, gql } = require('apollo-server-lambda');
 const faunadb = require('faunadb');
 const q = faunadb.query;
 
-var client = new faunadb.Client({ secret: process.env.FAUNA });
+var client = new faunadb.Client({ secret: process.env.FAUNA_API });
 
 console.log('test');
 // Construct a schema, using GraphQL schema language
@@ -48,7 +48,7 @@ const resolvers = {
     //   }
     // },
     getList: async (parent, args, { user }) => {
-      const results = await client.query(q.Paginate(q.Match(q.Index('getTodos'), user)));
+      const results = await client.query(q.Paginate(q.Match(q.Index('Registration'), user)));
       return console.log(results);
     }
   }
