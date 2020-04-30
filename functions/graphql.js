@@ -10,7 +10,7 @@ const typeDefs = gql`
   type List {
     id: ID!
     name: String!
-    email: Boolean!
+    email: String!
   }
   type Query {
     getList: [List]!
