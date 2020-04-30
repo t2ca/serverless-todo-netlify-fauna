@@ -4,6 +4,7 @@ const q = faunadb.query;
 
 var client = new faunadb.Client({ secret: process.env.FAUNA_API });
 
+console.log('test');
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
   type List {
@@ -48,7 +49,6 @@ const resolvers = {
     // },
     getList: async (parent, args, { user }) => {
       const results = await client.query(q.Paginate(q.Match(q.Index('allRegistrations'), user)));
-      console.log(results.data);
       return results.data.map(([ref, name, email]) => ({
         id: ref.id,
         name,
