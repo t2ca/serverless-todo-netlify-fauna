@@ -14,7 +14,9 @@ const authLink = setContext((_, { headers }) => {
   // const token = user.token.access_token
   const user = netlifyIdentity.gotrue.currentUser()
 
-  const token = user.jwt(true).then((jwt) => console.log(jwt))
+  const jwt = user.jwt(true).then((jwt) => console.log(jwt))
+
+  const token = user.token.access_token
 
   return {
     headers: {
