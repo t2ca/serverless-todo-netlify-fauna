@@ -48,7 +48,7 @@ const resolvers = {
     //   }
     // },
     getList: async (parent, args, { user }) => {
-      const results = await client.query(q.Paginate(q.Match(q.Ref('indexes/getList'))));
+      const results = await client.query(q.Get(q.Collection('Registration')));
       return console.log(results);
       // return results.data.map(([name, email, ref]) => ({
       //   name,
