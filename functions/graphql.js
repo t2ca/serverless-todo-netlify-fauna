@@ -48,9 +48,8 @@ const resolvers = {
     //   }
     // },
     getList: async (parent, args, { user }) => {
-      const results = await client
-        .query(q.Paginate(q.Match(q.Index('allRegistration'))))
-        .then((ret) => console.log(ret));
+      const results = await client.query(q.Paginate(q.Match(q.Index('allRegistration'))));
+      // .then((ret) => console.log(ret));
       // return console.log(results);
       return results.data.map(([name, email, ref]) => ({
         name,
