@@ -48,13 +48,15 @@ const resolvers = {
     //   }
     // },
     getList: async (parent, args, { user }) => {
-      const results = await client.query(q.Get(q.Collection('Registration')));
-      return console.log(results);
-      // return results.data.map(([name, email, ref]) => ({
-      //   name,
-      //   email,
-      //   id: ref.id
-      // }));
+      const results = await client
+        .query(q.Paginate(q.Match(q.Index('allRegistrations'))))
+        .then((ret) => console.log(ret));
+      // return console.log(results);
+      return results.data.map(([name, email, ref]) => ({
+        name,
+        email,
+        id: ref.id
+      }));
     }
   }
   // Mutation: {
