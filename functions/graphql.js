@@ -36,9 +36,9 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     // todos: async (parent, args, { user }) => {
-    //   if (!user) {
-    //     return [];
-    //   } else {
+    // if (!user) {
+    //   return [];
+    // } else {
     //     const results = await client.query(q.Paginate(q.Match(q.Index('todos_by_user'), user)));
     //     return results.data.map(([ref, text, done]) => ({
     //       id: ref.id,
@@ -48,14 +48,18 @@ const resolvers = {
     //   }
     // },
     getList: async (parent, args, { user }) => {
-      const results = await client.query(q.Paginate(q.Match(q.Index('allRegistration'))));
-      // .then((ret) => console.log(ret));
-      // return console.log(results);
-      return results.data.map(([name, email, ref]) => ({
-        name,
-        email,
-        id: ref.id
-      }));
+      if (!user) {
+        return [];
+      } else {
+        const results = await client.query(q.Paginate(q.Match(q.Index('allRegistration'))));
+        // .then((ret) => console.log(ret));
+        // return console.log(results);
+        return results.data.map(([name, email, ref]) => ({
+          name,
+          email,
+          id: ref.id
+        }));
+      }
     }
   }
   // Mutation: {
