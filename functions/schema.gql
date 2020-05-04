@@ -1,5 +1,6 @@
 type Registration {
-  name: String!
+  firstname: String!
+  lastname: String!
   email: String!
 }
 

@@ -12,7 +12,7 @@ exports.handler = async (event) => {
     },
     body: JSON.stringify({
       query: `
-        mutation($firstname: String!, $lastname: String, $email: String!) {
+        mutation($firstname: String!, $lastname: String!, $email: String!) {
           createRegistration(data: { firstname: $firstname, lastname: $lastname, email: $email }) {
             _id
           }
