@@ -10,8 +10,8 @@ import netlifyIdentity from 'netlify-identity-widget'
 import wrapWithProvider from './wrap-with-provider'
 
 const authLink = setContext((_, { headers }) => {
-  netlifyIdentity.gotrue.currentUser().jwt(true)
-  const user = netlifyIdentity.currentUser()
+  const user = netlifyIdentity.gotrue.currentUser()
+  user.jwt(true)
   const token = user.token.access_token
 
   console.log(user)
