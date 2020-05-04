@@ -54,13 +54,13 @@ const resolvers = {
       } else {
         const results = await client.query(q.Paginate(q.Match(q.Index('newRegistration'))));
         // .then((ret) => console.log(ret));
-        return console.log(results);
-        // return results.data.map(([firstname, lastname, email, ref]) => ({
-        //   firstname,
-        //   lastname,
-        //   email,
-        //   id: ref.id
-        // }));
+        // return console.log(results);
+        return results.data.map(([firstname, lastname, email, ref]) => ({
+          firstname,
+          lastname,
+          email,
+          id: ref.id
+        }));
       }
     }
   }
