@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useEffect } from 'react'
 import { Link } from 'gatsby'
 import {
   Container,
@@ -74,6 +74,11 @@ const Dashboard = () => {
   console.log(data)
   console.log(user.id)
 
+  useEffect(() => {
+    // Update the document title using the browser API
+    refetch()
+  }, [])
+
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
@@ -103,6 +108,7 @@ const Dashboard = () => {
         <div>
           This is top secret data! {user && user.user_metadata.full_name}
         </div>
+        {/*
         <Flex
           as="form"
           onSubmit={async (e) => {
@@ -123,7 +129,7 @@ const Dashboard = () => {
           >
             Submit
           </Button>
-        </Flex>
+        </Flex>*/}
         <Flex sx={{ flexDirection: 'column' }}>
           {loading ? <div>loading...</div> : null}
           {error ? <div>{error.message}</div> : null}
@@ -134,14 +140,14 @@ const Dashboard = () => {
                   key={todo.id}
                   as="li"
                   onClick={async () => {
-                    await updateTodoDone({ variables: { id: todo.id } })
+                    // await updateTodoDone({ variables: { id: todo.id } })
                     await refetch()
                   }}
                 >
-                  <Checkbox
+                  {/* <Checkbox
                     onChange={(props) => console.log(props)}
                     checked={false}
-                  />
+                  /> */}
                   <span>{todo.name}</span>
                   <span>{todo.email}</span>
                 </Flex>
