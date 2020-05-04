@@ -9,7 +9,8 @@ console.log('test');
 const typeDefs = gql`
   type List {
     id: ID!
-    name: String!
+    firstname: String!
+    lastname: String!
     email: String!
   }
   type Query {
@@ -54,8 +55,9 @@ const resolvers = {
         const results = await client.query(q.Paginate(q.Match(q.Index('allRegistration'))));
         // .then((ret) => console.log(ret));
         // return console.log(results);
-        return results.data.map(([name, email, ref]) => ({
-          name,
+        return results.data.map(([firstname, lastname, email, ref]) => ({
+          firstname,
+          lastname,
           email,
           id: ref.id
         }));
