@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'gatsby'
-import { Container, Flex, NavLink } from 'theme-ui'
+import { jsx, Container, Flex, NavLink } from 'theme-ui'
 import { gql, useQuery } from '@apollo/client'
 import { IdentityContext } from '../../identity-context'
 
@@ -65,8 +66,9 @@ const Dashboard = () => {
             <ul sx={{ listStyleType: 'none' }}>
               {data.getList.map((item) => (
                 <Flex key={item.id}>
-                  <span>{item.firstname}</span>
-                  <span>{item.email}</span>
+                  <span sx={{ color: `blue.7`, m: 2 }}>{item.firstname}</span>
+                  <span sx={{ color: `blue.4`, m: 2 }}>{item.lastname}</span>
+                  <span sx={{ fontWeight: 600, m: 2 }}>{item.email}</span>
                 </Flex>
               ))}
             </ul>
