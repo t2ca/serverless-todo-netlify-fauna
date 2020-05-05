@@ -51,7 +51,7 @@ const resolvers = {
       if (!user) {
         return [];
       } else {
-        const results = await client.query(q.Paginate(q.Match(q.Index('allRegistration'))));
+        const results = await client.query(q.Paginate(q.Match(q.Index('testRegistration'))));
         // .then((ret) => console.log(ret));
         // return console.log(results);
         return results.data.map(([firstname, lastname, email, ref]) => ({
