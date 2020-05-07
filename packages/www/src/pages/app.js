@@ -14,7 +14,7 @@ let DashLoggedOut = () => {
         <NavLink as={Link} to="/" p={2}>
           Home
         </NavLink>
-        <NavLink as={Link} to="/app/dashboard/" p={2}>
+        <NavLink as={Link} to="/app/" p={2}>
           Dashboard
         </NavLink>
         {user && (
@@ -43,13 +43,13 @@ const App = () => {
   if (!user) {
     return (
       <Router>
-        <DashLoggedOut path="/app/dashboard/" />
+        <DashLoggedOut path="/app/" />
       </Router>
     )
   }
   return (
     <Router>
-      <Dashboard path="/app/dashboard/" />
+      <Dashboard path="/app/" />
     </Router>
   )
 }

@@ -45,58 +45,6 @@ const Contact = () => {
   return (
     <Container>
       <h1>Register for our thing!</h1>
-      {/*
-      <form
-        name="contact"
-        method="post"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <label htmlFor="firstname">First Name</label>
-        <input id="firstname" name="firstname" type="text" />
-
-        <label htmlFor="lastname">Last Name</label>
-        <input id="lastname" name="lastname" type="text" />
-
-        <label htmlFor="email">Email Address</label>
-        <input id="email" name="email" type="email" />
-
-        <input type="submit" value="Send Message" />
-      </form>*/}
-
-      {/*      <form
-        name="contact"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="contact" />
-
-        <div>
-          <label htmlFor="firstname">First Name</label>
-          <input type="text" name="firstname" id="firstname" />
-        </div>
-
-        <div>
-          <label htmlFor="lastname">Last Name</label>
-          <input type="text" name="lastname" id="lastname" />
-        </div>
-
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" />
-        </div>
-
-        <ul>
-          <li>
-            <input type="submit" value="Send Message" />
-          </li>
-          <li>
-            <input type="reset" value="Clear" />
-          </li>
-        </ul>
-      </form>*/}
 
       <Formik
         initialValues={{
