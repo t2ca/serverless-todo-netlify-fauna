@@ -10,16 +10,15 @@ import netlifyIdentity from 'netlify-identity-widget'
 import wrapWithProvider from './wrap-with-provider'
 
 const authLink = setContext((_, { headers }) => {
-  const user = netlifyIdentity.gotrue.currentUser()
-  const token = user.token.access_token
-  netlifyIdentity.refresh()
-
-  console.log(user)
+  // const user = netlifyIdentity.currentUser()
+  // const token = user.token.access_token
+  // netlifyIdentity.refresh().then((jwt) => console.log(jwt))
+  // console.log(user)
 
   return {
     headers: {
       ...headers,
-      Authorization: token ? `Bearer ${token}` : '',
+      // Authorization: token ? `Bearer ${token}` : '',
     },
   }
 })
@@ -31,7 +30,7 @@ const httpLink = new HttpLink({
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: authLink.concat(httpLink),
+  link: httpLink,
 })
 
 export const wrapRootElement = ({ element }) => {

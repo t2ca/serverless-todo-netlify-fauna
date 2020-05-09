@@ -48,19 +48,15 @@ const resolvers = {
     //   }
     // },
     getList: async (parent, args, { user }) => {
-      if (!user) {
-        return [];
-      } else {
-        const results = await client.query(q.Paginate(q.Match(q.Index('testRegistration'))));
-        // .then((ret) => console.log(ret));
-        // return console.log(results);
-        return results.data.map(([firstname, lastname, email, ref]) => ({
-          firstname,
-          lastname,
-          email,
-          id: ref.id
-        }));
-      }
+      const results = await client.query(q.Paginate(q.Match(q.Index('testRegistration'))));
+      // .then((ret) => console.log(ret));
+      // return console.log(results);
+      return results.data.map(([firstname, lastname, email, ref]) => ({
+        firstname,
+        lastname,
+        email,
+        id: ref.id
+      }));
     }
   }
   // Mutation: {
