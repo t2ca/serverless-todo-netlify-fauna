@@ -10,3 +10,6 @@ yarn-error.log
 .env
 .env.development
 .envrc
+
+# Local Netlify folder
+.netlify
