@@ -47,8 +47,8 @@ const resolvers = {
     // },
 
     getList: async (parent, args, { user }) => {
-      const client = new faunadb.Client({ secret: process.env.FAUNA_API });
-      client.queryTimeout(200);
+      const client = new faunadb.Client({ queryTimeout: 2000, secret: process.env.FAUNA_API });
+
       const results = await client.query(q.Paginate(q.Match(q.Index('testRegistration'))));
       // .then((ret) => console.log(ret));
       // return console.log(results);
